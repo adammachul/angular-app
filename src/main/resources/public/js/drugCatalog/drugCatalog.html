@@ -1,0 +1,53 @@
+<div class="well well-sm">
+    <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+            class="glyphicon glyphicon-th"></span>Grid</a>
+    </div>
+    <div class="pagination pull-right" data-pagination="" data-num-pages="numPages()" data-current-page="settings.currentPage"
+        data-max-size="settings.maxSize" data-boundary-links="true">
+    </div>
+</div>
+
+<h1 ng-if="!drugs">Loading...</h1>
+<div id="products" class="row list-group">
+    <div ng-repeat="drug in drugs.content">
+        <div class="item col-xs-4 col-lg-4 grid-group-item">
+            <div class="thumbnail">
+                <img class="group list-group-image" ng-src="{{drug.image}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading truncate"><b>{{drug.name}}</b></h4>
+                    <h6 class="group inner list-group-item-heading truncate">{{drug.company}}</h6>
+                    <p class="group inner list-group-item-text block-with-text">{{drug.description}}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead pull-bottom">${{drug.price}}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success pull-right pull-bottom" ng-show="isLogged()" ng-click="addToCart(drug)">Dodaj do koszyka</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination pull-right" data-pagination="" data-num-pages="numPages()" data-current-page="settings.currentPage"
+    data-max-size="settings.maxSize" data-boundary-links="true">
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#list').click(function (event) {
+            event.preventDefault();
+            $('#products .item').removeClass('grid-group-item');
+            $('#products .item').addClass('list-group-item');
+        });
+        $('#grid').click(function (event) {
+            event.preventDefault();
+            $('#products .item').removeClass('list-group-item');
+            $('#products .item').addClass('grid-group-item');
+        });
+    });
+
+</script>
