@@ -1,11 +1,10 @@
-angular.module('onlinePharmacy')
-
+angular.module('listonic')
 
 .controller('appController', function ($rootScope, $scope, $http, AuthenticationService, UserService, Role, CartService) {
     $scope.credentials = {};
     $scope.getTotalCost = CartService.getTotalCost;
     // $scope.authenticated = true;
-    // $scope.username = "QueUe";
+    // $scope.username = "adam";
     AuthenticationService.authenticate( () => {
         $scope.username = AuthenticationService.getUser().username;
         $rootScope.cart = CartService.getTotalCost();

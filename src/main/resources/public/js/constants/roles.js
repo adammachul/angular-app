@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
 .constant("Role", {
     "USER": "ROLE_USER",

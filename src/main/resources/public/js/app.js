@@ -1,6 +1,6 @@
-let onlinePharmacy = angular.module('onlinePharmacy', ['ngRoute', 'ngResource', 'ui.bootstrap', 'ngStorage']);
+let listonic = angular.module('listonic', ['ngRoute', 'ngResource', 'ui.bootstrap', 'ngStorage']);
 
-onlinePharmacy.config(function ($routeProvider) {
+listonic.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'js/home/home.html',
@@ -13,6 +13,10 @@ onlinePharmacy.config(function ($routeProvider) {
         .when('/cart', {
             templateUrl: 'js/cart/cart.html',
             controller: 'cartController'
+        })
+        .when('/mylists', {
+            templateUrl: 'js/lists/lists.html',
+            controller: 'listsController'
         })
         .when('/administration', {
             templateUrl: 'js/administration/administration.html',

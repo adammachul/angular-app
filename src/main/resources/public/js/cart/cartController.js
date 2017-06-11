@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
     .controller('cartController', function ($scope, $localStorage, CartService) {
         $scope.drugs = CartService.getCartProducts();

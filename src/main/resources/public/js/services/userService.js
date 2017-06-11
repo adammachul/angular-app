@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
 .service('UserService', function ($http, Path) {
 

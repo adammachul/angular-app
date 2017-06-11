@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
 .controller('drugCatalogController', function ($scope, $http, CartService) {
     $scope.content = "Drug Catalog";

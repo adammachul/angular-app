@@ -1,0 +1,38 @@
+<div>
+    <h2>Twoje Listy</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Edycja</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="list in lists.content">
+            <td class="col-md-3">{{list.name}}</td>
+            <td class="col-md-7">{{list.description}}</td>
+            <td class="col-md-2">Edytuj</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form ng-submit="addList(inputs)">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="name" placeholder="Nazwa" class="form-control" required
+                       ng-model="inputs.name">
+            </div>
+            <div class="col-md-7">
+                <input type="text" placeholder="Opis" class="form-control"
+                       ng-model="inputs.description">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok"></span> Dodaj
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

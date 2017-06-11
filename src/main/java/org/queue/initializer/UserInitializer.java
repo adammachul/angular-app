@@ -28,7 +28,7 @@ public class UserInitializer implements CommandLineRunner {
         User admin = new User();
         admin.setUsername("admin");
         admin.setPassword("admin"); //TODO: change it to MD5
-        admin.setEmail("admin@online-pharmacy.com");
+        admin.setEmail("admin@listonic.com");
         admin.addRoles(Roles.ROLE_ADMIN);
         return admin;
     }
@@ -37,7 +37,7 @@ public class UserInitializer implements CommandLineRunner {
         User user = new User();
         user.setUsername("user");
         user.setPassword("user"); //TODO: change it to MD5
-        user.setEmail("user@online-pharmacy.com");
+        user.setEmail("user@listonic.com");
         user.addRoles(Roles.ROLE_USER);
         return user;
     }

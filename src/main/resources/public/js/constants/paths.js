@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
 .constant("Path", {
     "BASE": "http:localhost:8080/",

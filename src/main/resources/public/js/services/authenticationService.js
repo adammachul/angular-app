@@ -1,4 +1,4 @@
-angular.module('onlinePharmacy')
+angular.module('listonic')
 
 
     .service('AuthenticationService', function ($rootScope, $http, $q, $location, Path) {
