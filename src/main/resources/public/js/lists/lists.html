@@ -13,7 +13,9 @@
         <tr ng-repeat="list in lists.content">
             <td class="col-md-3">{{list.name}}</td>
             <td class="col-md-7">{{list.description}}</td>
-            <td class="col-md-2">Edytuj</td>
+            <td class="col-md-2">
+                <a ng-href="#/edit/{{list.id}}">Edytuj</a>
+            </td>
         </tr>
         </tbody>
     </table>

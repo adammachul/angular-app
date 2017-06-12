@@ -28,7 +28,7 @@ public class ListsInitializer implements CommandLineRunner{
         firstList.setName("Jedzenie");
         firstList.setDescription("To lista z jedzeniem");
         String[] elements = {"pierwsze jedzenie", "drugie jedzenie"};
-        firstList.setElements(elements);
+        firstList.addElements(elements);
         return firstList;
     }
 
@@ -37,7 +37,7 @@ public class ListsInitializer implements CommandLineRunner{
         secondList.setName("Leki");
         secondList.setDescription("To lista lekow");
         String[] elements = {"ppierwszy lek", "drugi lek"};
-        secondList.setElements(elements);
+        secondList.addElements(elements);
         return secondList;
     }
 }

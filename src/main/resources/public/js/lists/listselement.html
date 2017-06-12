@@ -1,0 +1,37 @@
+<div>
+    <h2>Twoje elementy</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Edycja</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="element in onelist.elements">
+            <td class="col-md-10">{{element}}</td>
+            <td class="col-md-2">
+                <button ng-click="deleteElement()" class="btn btn-primary">
+                    Usuń
+                </button>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <form ng-submit="updateElements(inputs)">
+        <div class="row">
+            <div class="col-md-10">
+                <input type="text" name="name" placeholder="Nowy element" class="form-control" required
+                       ng-model="inputs">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok"></span> Dodaj
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

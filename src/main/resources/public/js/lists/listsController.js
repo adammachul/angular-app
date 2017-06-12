@@ -2,11 +2,6 @@ angular.module('listonic')
 
     .controller('listsController', function ($scope, $localStorage, $http, ListsService) {
         $scope.content = "User Lists";
-        $scope.inputs = {};
-
-        $scope.settings = {
-            listAdded: false
-        };
 
         let update = () => {
             $http.get("/lists")
@@ -16,11 +11,8 @@ angular.module('listonic')
         }
         update();
 
-        $scope.$watch('settings.listAdded', function () {
-           update();
-           $scope.settings.listAdded = false;
-        });
-
-        $scope.lists = ListsService.getLists();
-        $scope.addList = (list) => ListsService.addList(list);
+        $scope.addList = (list) => {
+            ListsService.addList(list);
+            update();
+        };
     });

@@ -1,14 +1,29 @@
 angular.module('listonic')
 
-    .service('ListsService', function ($rootScope, $localStorage, AuthenticationService) {
+    .service('ListsService', function ($rootScope, $localStorage, $http, Path, AuthenticationService) {
+        let self = this;
+
+        this.settings = {
+            listAdded: false
+        };
 
         this.addList = (list) => {
-            let username = AuthenticationService.getUser().username;
-            if(!localStorage[username]) {
-                $localStorage[username] = {
-                    lists: []
-                };
-            }
+            $http.post(Path.LISTS, list).success( (data) => {
+               console.log("dodano liste");
+               self.settings.listAdded = true;
+            });
+        }
+
+        this.updateElements = (id, element) => {
+            $http.put(Path.LISTS + id, element).success( (data) => {
+               console.log("update elementow")
+            });
+        }
+
+        this.addElement = (id,element) => {
+            $http.post(Path.LISTS  + id, element).success( (data) => {
+               console.log("dodano element");
+            });
         }
 
         this.getLists = () => {

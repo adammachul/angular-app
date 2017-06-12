@@ -8,5 +8,6 @@ angular.module('listonic')
     "REGISTER": "register",
     "UNIQUE_USERNAME": "register/username/",
     "UNIQUE_EMAIL": "register/email/",
-    "USER": "user"
+    "USER": "user",
+    "LISTS": "lists"
 });

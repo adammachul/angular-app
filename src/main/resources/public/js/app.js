@@ -18,6 +18,10 @@ listonic.config(function ($routeProvider) {
             templateUrl: 'js/lists/lists.html',
             controller: 'listsController'
         })
+        .when('/edit/:listId', {
+            templateUrl: 'js/lists/listselement.html',
+            controller: 'listsElementController'
+        })
         .when('/administration', {
             templateUrl: 'js/administration/administration.html',
             controller: 'administrationController'
