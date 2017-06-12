@@ -1,19 +1,16 @@
 angular.module('listonic')
 
-.controller('appController', function ($rootScope, $scope, $http, AuthenticationService, UserService, Role, CartService) {
+.controller('appController', function ($rootScope, $scope, $http, AuthenticationService, UserService, Role) {
     $scope.credentials = {};
-    $scope.getTotalCost = CartService.getTotalCost;
     // $scope.authenticated = true;
     // $scope.username = "adam";
     AuthenticationService.authenticate( () => {
         $scope.username = AuthenticationService.getUser().username;
-        $rootScope.cart = CartService.getTotalCost();
     });
     $scope.login = () => {
         AuthenticationService.login($scope.credentials).then(() => {
             $scope.error = false;
             $scope.username = AuthenticationService.getUser().username;
-            $rootScope.cart = CartService.getTotalCost();
         }, () => {
             $scope.error = true;
         })

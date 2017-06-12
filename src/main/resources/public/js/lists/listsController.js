@@ -8,10 +8,6 @@ angular.module('listonic')
             $http.get("/lists")
                 .success( (data) => {
                     $scope.lists = data;
-                    $scope.filteredLists = $filter('filter')(data, {'user': AuthenticationService.getUser()});
-                    $scope.filtered = data.content.filter( (users) => users.user.username == AuthenticationService.getUser().username );
-                    console.log(AuthenticationService.getUser());
-                    console.log("lista filtrowana: " + $scope.filteredLists);
             });
         }
         update();

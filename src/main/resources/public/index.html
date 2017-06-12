@@ -35,16 +35,6 @@
                         <span class="glyphicon glyphicon-home"></span> Home
                     </a>
                 </li>
-                <li>
-                    <a href="#drugcatalog">
-                        <span class="glyphicon glyphicon-book"></span> Katalog leków
-                    </a>
-                </li>
-                <li ng-show="isLogged()">
-                    <a href="#cart">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>Koszyk<span ng-if="cart">({{getTotalCost()}}$)</span>
-                    </a>
-                </li>
                 <li ng-show="isLogged()">
                     <a href="#mylists">
                         <span class="glyphicon glyphicon-list-alt"></span>Listy
@@ -195,12 +185,9 @@
 <script src="js/lists/listsController.js"></script>
 <script src="js/lists/listsElementController.js"></script>
 <script src="js/administration/administrationController.js"></script>
-<script src="js/cart/cartController.js"></script>
-<script src="js/drugCatalog/drugCatalogController.js"></script>
 
 <script src="js/services/authenticationService.js"></script>
 <script src="js/services/userService.js"></script>
-<script src="js/services/cartService.js"></script>
 <script src="js/services/listsService.js"></script>
 
 <script src="js/constants/roles.js"></script>

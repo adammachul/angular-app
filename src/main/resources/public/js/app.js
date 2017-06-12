@@ -6,14 +6,6 @@ listonic.config(function ($routeProvider) {
             templateUrl: 'js/home/home.html',
             controller: 'homeController'
         })
-        .when('/drugcatalog', {
-            templateUrl: 'js/drugCatalog/drugCatalog.html',
-            controller: 'drugCatalogController'
-        })
-        .when('/cart', {
-            templateUrl: 'js/cart/cart.html',
-            controller: 'cartController'
-        })
         .when('/mylists', {
             templateUrl: 'js/lists/lists.html',
             controller: 'listsController'
