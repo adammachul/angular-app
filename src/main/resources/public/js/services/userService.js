@@ -15,5 +15,4 @@ angular.module('listonic')
     this.verifyEmail = (email) => {
         return $http.post(Path.UNIQUE_EMAIL, email)
     }
-
 });

@@ -1,7 +1,9 @@
 package org.queue.initializer;
 
+import org.queue.models.Lists;
 import org.queue.models.roles.Roles;
 import org.queue.models.User;
+import org.queue.repositories.ListsRepository;
 import org.queue.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +19,37 @@ public class UserInitializer implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ListsRepository listsRepository;
+
     @Override
     public void run(String... args) throws Exception {
-        userRepository.save(makeAdminUser());
-        userRepository.save(makeRegularUser());
+        User adminUser = userRepository.save(makeAdminUser());
+        User regularUser = userRepository.save(makeRegularUser());
         logger.info("Users have been initialized");
+        listsRepository.save(makeFirstList(adminUser));
+        listsRepository.save(makeSecondList(regularUser));
+        logger.info("Lists have been initialized");
+    }
+
+    private Lists makeFirstList(User user) {
+        Lists firstList = new Lists();
+        firstList.setName("Jedzenie");
+        firstList.setDescription("To lista z jedzeniem");
+        String[] elements = {"pierwsze jedzenie", "drugie jedzenie"};
+        firstList.addElements(elements);
+        firstList.setUser(user);
+        return firstList;
+    }
+
+    private Lists makeSecondList(User user) {
+        Lists secondList = new Lists();
+        secondList.setName("Leki");
+        secondList.setDescription("To lista lekow");
+        String[] elements = {"pierwszy lek", "drugi lek"};
+        secondList.addElements(elements);
+        secondList.setUser(user);
+        return secondList;
     }
 
     private User makeAdminUser() {

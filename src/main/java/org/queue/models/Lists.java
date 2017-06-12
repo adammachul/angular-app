@@ -1,9 +1,6 @@
 package org.queue.models;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +21,8 @@ public class Lists {
 
     @ElementCollection
     private List<String> elements;
+
+    private @ManyToOne User user;
 
     public Lists() {
         incrementedValue++;
@@ -65,6 +64,14 @@ public class Lists {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

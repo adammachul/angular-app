@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-@Component
 public class ListsInitializer implements CommandLineRunner{
 
     private Logger logger = LoggerFactory.getLogger(ListsInitializer.class);
@@ -20,7 +19,7 @@ public class ListsInitializer implements CommandLineRunner{
     public void run(String... args) throws Exception {
         listsRepository.save(makeFirstList());
         listsRepository.save(makeSecondList());
-        logger.info("Lists have been initialized");
+        logger.info("Lists have been initialized list initializer dziala");
     }
 
     private Lists makeFirstList() {

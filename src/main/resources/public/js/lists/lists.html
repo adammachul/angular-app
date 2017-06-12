@@ -10,7 +10,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="list in lists.content">
+        <tr ng-repeat="list in lists.content | filter: {user.username: userData.username}">
+
             <td class="col-md-3">{{list.name}}</td>
             <td class="col-md-7">{{list.description}}</td>
             <td class="col-md-2">
