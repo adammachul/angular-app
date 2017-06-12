@@ -15,6 +15,9 @@
             <td class="col-md-7">{{list.description}}</td>
             <td class="col-md-2">
                 <a ng-href="#/edit/{{list.id}}">Edytuj</a>
+                <button ng-click="deleteList(list.id)" class="btn btn-primary">
+                    Usuń
+                </button>
             </td>
         </tr>
         </tbody>

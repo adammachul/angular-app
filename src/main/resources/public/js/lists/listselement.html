@@ -10,9 +10,9 @@
         </thead>
         <tbody>
         <tr ng-repeat="element in onelist.elements">
-            <td class="col-md-10">{{element}}</td>
+            <td class="col-md-10">{{element}} + {{$index}}</td>
             <td class="col-md-2">
-                <button ng-click="deleteElement()" class="btn btn-primary">
+                <button ng-click="deleteElement(element)" class="btn btn-primary">
                     Usuń
                 </button>
             </td>

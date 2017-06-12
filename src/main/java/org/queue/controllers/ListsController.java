@@ -56,10 +56,14 @@ public class ListsController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}/{elementId}")
-    public String deleteElement(@PathVariable("id") String id, @PathVariable("elementId") String elementId, @RequestBody String element) {
-
-        String s = "asa";
-        return s;
+    public Lists deleteElement(@PathVariable("id") String id, @PathVariable("elementId") String elementId) {
+        Lists lists = listsRepository.findOne(id);
+        List<String> tempList = lists.getElements();
+        tempList.remove(Integer.parseInt(elementId));
+        lists.setElements(tempList);
+        listsRepository.delete(id);
+        Lists resultList = listsRepository.save(lists);
+        return resultList;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/{id}")
@@ -69,5 +73,4 @@ public class ListsController {
         logger.info("Dodano element " + newElement + " do listy");
         return newElement;
     }
-
 }

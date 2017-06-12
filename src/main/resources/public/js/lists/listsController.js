@@ -15,4 +15,9 @@ angular.module('listonic')
             ListsService.addList(list);
             update();
         };
+
+        $scope.deleteList = (listId) => {
+            ListsService.deleteList("/" + listId);
+            update();
+        }
     });

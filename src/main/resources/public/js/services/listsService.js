@@ -26,6 +26,18 @@ angular.module('listonic')
             });
         }
 
+        this.deleteElement = (path) => {
+            $http.delete(Path.LISTS + path).success( (data) => {
+               console.log("usunieto element");
+            });
+        }
+
+        this.deleteList = (path) => {
+            $http.delete(Path.LISTS + path).success( (data) => {
+                console.log("usunieto liste");
+            });
+        }
+
         this.getLists = () => {
             let user = AuthenticationService.getUser();
             if (user && user.username) {
